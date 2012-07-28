@@ -1,0 +1,5 @@
+autodart.tests/autodart.dart
+eventaggregator.tests/testeventaggregator.dart
+eventaggregator/EventAggregator.dart
+autodart/autodart.dart
+common/common.dart
