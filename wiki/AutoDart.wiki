@@ -1,0 +1,38 @@
+#summary One-sentence summary of this page.
+#labels Ioc,autodart
+
+= IoC Container - AutoDart Introduction =
+The IoC Container for Dart
+
+= Details =
+
+{{{
+class Baz{
+}
+
+class Bar{
+  Baz baz;
+  Bar(this.baz);
+}
+
+class Foo{
+  Bar bar;
+  Foo(this.bar);
+}
+
+var main(){
+  var b = new AutoBuilder();
+  b.register((c, p) => new Baz())
+    .As("Baz");
+  
+  b.register((c, p) => new Bar(c.resolve("Baz")))
+    .As("Bar");
+  
+  b.register((c, p) => new Foo(c.resolve("Bar")))
+    .As("Foo");
+  
+  var c = b.build();
+  
+  var foo = c.resolve("Foo") as Foo;
+}
+}}}
